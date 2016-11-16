@@ -1,0 +1,57 @@
+\documentclass[10pt]{article}
+% Эта строка — комментарий, она не будет показана в выходном файле
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc} % Включаем поддержку UTF8
+\usepackage[russian]{babel}  % Включаем пакет для поддержки русского языка
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+
+\hoffset=0mm
+\voffset=0mm
+\textwidth=170mm        % ширина текста
+\oddsidemargin=-0mm   % левое поле 25.4 - 5.4 = 20 мм
+\textheight=240mm       % высота текста 297 (A4) - 40
+\topmargin=-15.4mm      % верхнее поле (10мм)
+\headheight=5mm      % место для колонтитула
+\headsep=5mm          % отступ после колонтитула
+\footskip=8mm         % отступ до нижнего колонтитула
+
+% \textwidth=180mm    
+% \oddsidemargin=-10mm 
+
+\title{Задача об оптимальном рассписании}
+\author{Зотов Алексей, 497}
+\date{\today}
+
+\begin{document}
+\maketitle
+\paragraph{\Large {Формулировка задачи\\\\}} 
+
+\indent Имеется множество работ $J$ и множество машин $M$. Также задана функция $p: J \times M \to \mathbb{R}_+$. Значение $p(i,j) = p_{ij}$ означает время выполнения $i$-ой работы на $j$-ой машине. \\
+Требуется найти распределние работ по машинам, так чтобы время выполнения всех работ было минимально. Формально, требуется построить функцию $x : J \times M \to \{1,0\}$ такую, что: 
+\begin{equation}
+    \sum_{j \in M} x_{ij} = 1 , \quad \forall i
+\end{equation}
+\begin{equation}
+    \max_{j \in M} \sum_{i} x_{ij} p_{ij} \to \min 
+\end{equation}
+\\
+\\
+\paragraph{\Large{$\mathbf{NP}$ - полнота\\\\}}
+\indent \textbf{Теорема.} Задача об оптимальном расписании является $\mathbf{NP}$ - полной.
+\\
+\\
+\paragraph{\Large{Полиномиальное приближение\\\\}}
+\indent Найдем приближенное полиномиальное частного случай задачи об оптимальном рассписании, когда мощности всех машин одинаковы, то есть $p_{ij} = p_i$. \\ \\ 
+Рассмотрим алгоритм \textbf{LPTR} (Longest Processing Time Rule): \\
+\begin{enumerate}
+    \item Отсортируем работы в порядке невозрастания сложности работы $p_i$, то есть так, что $p_i \geq p_{i+1} \quad \forall i$. 
+    \item Пройдем все работы в данном порядке, назначая на $i$-м шаге данную работу той машине, которая завершит обработку уже назначенных ей задач раньше всех остальных машин.
+\end{enumerate}
+
+\indent \textbf{Теорема.} LPTR - имеет коэффициент аппроксимации $\frac{4}{3}$ для задачи об оптимальном расписании, 
+то есть $ \text{LPTR} (s) \leq \frac{4}{3} \text{OPT} (s) \quad \forall s$ - входные данные , $\text{OPT} (s)$ - оптимальное решение. 
+
+
+\end{document}
