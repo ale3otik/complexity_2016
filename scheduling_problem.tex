@@ -97,7 +97,7 @@
     \begin{equation}
         \sum_{a \in A'} s(a) = \sum_{a \in A' \backslash A} s(a)
     \end{equation}
-    Тогда каждая из этиъ сумм должна быть равна $\frac{1}{2} sum_{a \in A} s(a) = 2 \sum^{k}_{i=1} s(a_i)$.
+    Тогда каждая из этиъ сумм должна быть равна $\frac{1}{2} \sum_{a \in A} s(a) = 2 \sum^{k}_{i=1} s(a_i)$.
     Также $s(b_1) + s(b_2) = 3 \left(\sum^{k}_{i=1} s(a) \right)$, значит одно из множеств $A'$ или 
     $A' \backslash A$ содержит $b_1$ и не содержит $b_2$. Значит остальные элементы этого подмножества из $\{a_i: 1 \leq i \leq k \}$ и сумма их весов в точности равна $B$. Тогда, по сделанному ранее замечанию, этому подмножеству соответствует $M' \subseteq M$ являющееся решением задачи \textbf{3DM}. \\ 
     Обратно, если задано покрытие $M' \subseteq M$, являющееся решением задачи \textbf{3DM}, то ${b_1} \cup {a_i:m_i \in M'}$ - искомое множество $A'$. \\
@@ -141,5 +141,11 @@
                     w(S) \leq \text{OPT} + \frac{\text{OPT}}{3} (1 - \frac{1}{m}) \leq \frac{4}{3} \text{OPT}
                 \end{equation}
                 Что завершает доказательство. $\triangleright$
+
+\paragraph{\Large{Список литературы\\\\}}
+\begin{itemize}
+ \item $[1]$ http://research.microsoft.com/en-us/um/people/dechakr/Courses/CO454/Lectures/lecture12.pdf
+ \item $[2]$ М.Гэри, Д.Джонсон "Вычислительные машины и труднорешаемые задачи". М.: Мир, 1982.
+\end{itemize}
 
 \end{document}
